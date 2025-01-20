@@ -8,4 +8,15 @@
         FROM products;
     </select>
 
+    <select id="addProduct">
+        INSERT INTO (title, price, description, category, image, rating_rate, rating_count)
+        VALUES (#{title}, #{price}, #{description}, #{category}, #{image}, #{rating_rate}, #{rating_count})
+    </select>
+
+    <select id="productDetail">
+        SELECT id, title, price, description, category, image
+        FROM products
+        WHERE id = #{productId}
+    </select>
+
 </mapper>

@@ -4,14 +4,13 @@ import com.kht.ecommerce.ecommerce_application.dto.Cart;
 import com.kht.ecommerce.ecommerce_application.dto.Product;
 import com.kht.ecommerce.ecommerce_application.dto.User;
 import com.kht.ecommerce.ecommerce_application.service.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 
 public class ApiController {
@@ -41,17 +40,49 @@ public class ApiController {
     public List<Cart> getCart(@RequestParam("userId")int userId){
         return cartService.getCartByUserId(userId);
     }
+    //이메일 중복 확인
+    @GetMapping("/api/existEmail")
+    public boolean existEmail(@RequestParam("email")String email){
+        return userService.existByEmail(email);
+    }
 
+    //유저 정보 상세보기
+    @GetMapping("/api/user/{userId}")
+    public User apiUserById(@PathVariable("userId") int userId){
+        return userService.userDetail(userId);
+    }
+
+    //상품 정보 상세보기
+    @GetMapping("/api/product/{productId}")
+    public Product apiProductById(@PathVariable("productId") int productId) {
+        return productService.productDetail(productId);
+
+    }
     /*
     HTTP Status 500 – Internal Server Error 서버에서 생각지 못한 문제 발생
     Expected one result (or null) to be returned by selectOne(), but found: 3
-
-
      */
-    @GetMapping("/cart{userId}")
-    public String getCartByUserId(@PathVariable("userId")int userId){
-        return "cart";
+
+
+    /**
+     Param = 파라미터 = 매개변수
+     * @RequestParam : 부분적으로 저장할 때 사용함
+     * @RequestBody  : 전체적으로 저장할 때 사용함
+     *
+     */
+
+    @PostMapping("/api/join")
+    public void join(@RequestBody User user) {
+        log.info("join user: {}", user);
+        userService.insertUser(user);
     }
+
+    @PostMapping("/api/products/insert")
+    public void addProduct(@RequestBody Product product) {
+        log.info("add product: {}", product);
+        productService.addProduct(product);
+    }
+
 
 }
 

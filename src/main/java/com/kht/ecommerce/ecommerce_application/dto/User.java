@@ -23,7 +23,7 @@ public class User{
     private String phone;
     private String city;
     private String street;
-    private int StreetNumber;
+    private int streetNumber;
     private String zipcode;
     private String geolocationLat;
     private String geolocationLong;

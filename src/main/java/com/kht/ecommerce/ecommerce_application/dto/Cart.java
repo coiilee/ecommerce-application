@@ -18,6 +18,7 @@ public class Cart {
     private int id;
     private String userId;
     private String date;
+    // products table 컬럼명
     private String title;
     private int price;
     private int quantity;
