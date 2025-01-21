@@ -21,7 +21,7 @@
                     $.each(products, function (key, value) {
                         $('#product-container').append(
                             `<div class="card">
-                            <a href="/product/${value.id}?productId=${value.id}">
+                            <a href="/product?id=${value.id}">
                                 <img src="${value.image}" alt="${value.title}">
                                 <h3>${value.title}</h3>
                                 <p>${value.price}</p>

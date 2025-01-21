@@ -3,6 +3,7 @@ package com.kht.ecommerce.ecommerce_application.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ViewController {
@@ -44,14 +45,14 @@ public class ViewController {
     }
 
     //유저 상세보기 페이지
-    @GetMapping("/user/{id}")
-    public String getUserById(@PathVariable("id")int userId) {
+    @GetMapping("/user")
+    public String getUserById(@RequestParam("id")int userId) {
         return "user_detail";
     }
 
     //상품 상세보기 페이지
-    @GetMapping("/product/{id}")
-    public String getProductById(@PathVariable("id")int productId) {
+    @GetMapping("/product")
+    public String getProductById(@RequestParam("id")int productId) {
         return "product_detail";
     }
 }

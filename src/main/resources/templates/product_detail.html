@@ -13,7 +13,7 @@
 <script src="/product_detail.js"></script>
 <script>
     const queryParams = new URLSearchParams(window.location.search)
-    const productId = queryParams.get('productId');
+    const productId = queryParams.get('id');
 
     $.ajax({
         url: `/api/product/${productId}`,
