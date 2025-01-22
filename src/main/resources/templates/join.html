@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-    <h1>회원가입</h1>
+<h1>회원가입</h1>
 <form class="joinForm" id="joinForm">
     <label for="email">이메일 : </label>
     <input type="email" name="email" id="email">
@@ -45,18 +45,18 @@
 
     <button>회원가입</button>
 
- </form>
+</form>
 
 <script>
-        $('#checkEmailBtn').click(function (){
-            const email = $('#email').val();
-            if (!email){
+    $('#checkEmailBtn').click(function (){
+        const email = $('#email').val();
+        if (!email){
             $('#emailCheckMessage').text('이메일을 입력해주세요.');
-            }
-        })
+        }
+    })
 
-        $('#joinForm').submit(function (event){
-            event.preventDefault();
+    $('#joinForm').submit(function (event){
+        event.preventDefault();
 
         //이메일 중복확인 /api/existEmail
         $.ajax({
