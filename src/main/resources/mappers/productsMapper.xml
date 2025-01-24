@@ -14,9 +14,23 @@
     </select>
 
     <select id="productDetail">
-        SELECT id, title, price, description, category, image
+        SELECT id, title, price, description, category, image, rating_rate, rating_count
         FROM products
         WHERE id = #{productId}
     </select>
+
+    <update id="updateProduct">
+        UPDATE Products
+        SET
+            title = #{title},
+            price= #{price},
+            description = #{description},
+            category = #{category},
+            image = #{image},
+            rating_rate = #{ratingRate},
+            rating_count =#{ratingCount}
+        WHERE ID = #{id}
+
+    </update>
 
 </mapper>

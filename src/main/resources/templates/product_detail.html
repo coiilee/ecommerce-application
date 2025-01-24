@@ -28,13 +28,14 @@
             //
             // $('#person-detail-container').append(productDetail);
             if(data){
-                $('#product-detail-container').append(`<p>상품이름 : ${data.title}</p>`);
-                $('#product-detail-container').append(`<p>가격 : ${data.price}</p>`);
-                $('#product-detail-container').append(`<p>설명 : ${data.description}</p>`);
-                $('#product-detail-container').append(`<p>카테고리 : ${data.category}</p>`);
-                $('#product-detail-container').append(`<img src="${data.image}" alt="상품 이미지">`);
-            }
-        },
+                $('#product-detail-container').append(`<p>상품이름 : ${data.title}</p>
+                <p>가격 : ${data.price}</p>
+                <p>설명 : ${data.description}</p>
+                <p>카테고리 : ${data.category}</p>
+                <img src="${data.image}" style="width: 200px;height: 200px" alt="상품 이미지">
+                    <a href="/update/product?id=${data.id}">수정하기</a>`);
+                    }
+                    },
         error: function (error){
             console.log("error: ",error);
             $('#product-detail-container').html('<p>데이터를 가져오는데 문제가 발생했습니다.</p>');
@@ -43,3 +44,6 @@
 </script>
 </body>
 </html>
+
+<!--<p>평점 : ${data.ratingRate}</p>-->
+<!--<p>평점 수 : ${data.ratingCount}</p>-->

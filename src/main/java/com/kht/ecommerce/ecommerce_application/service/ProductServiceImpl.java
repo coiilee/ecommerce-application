@@ -28,4 +28,9 @@ public class ProductServiceImpl implements ProductService {
         return productMapper.productDetail(productId);
     }
 
+    @Override
+    public void updateProduct(Product product) {
+        productMapper.updateProduct(product);
+    }
+
 }

@@ -13,7 +13,7 @@
 <div data-user-id="${userId}" id="cart-container"></div>
 <!--<script src="/cart.js"></script>-->
 <script>
-    const userId = new URLSearchParams(window.location.search).get('userId');
+    const userId = new URLSearchParams(window.location.search).get('id');
 
     $.ajax({
         url: `/api/carts?userId=${userId}`,

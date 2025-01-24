@@ -10,16 +10,19 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-@Bean //비밀번호 암호화 처리하는 자바 기능
-    public PasswordEncoder passwordEncoder() {//자바에서 만든 passwordencode.java 파일 가져와 비밀번호 암호화 기능사용하겠단 설정
+    //비밀번호 암호화 처리하는 자바 기능 불러와서
+    //Bean 설정하여 스프링부트 자체에서 사용자가 작성한 비밀번호를
+    //암호화 처리하여 저장할 수 있도록 설정
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {//자바에서 만든 passwordencode.java 파일 가져와 비밀번호 암호화 기능사용하겠단 설정
     return new BCryptPasswordEncoder();
 }
 
 @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    http.csrf(csrf->csrf.disable())
+    http.csrf(csrf-> csrf.disable())
             .authorizeHttpRequests(auth-> auth.anyRequest().permitAll())
-            .formLogin(form->form.disable());
+            .formLogin((form-> form.disable()));
     return http.build();
 }
 

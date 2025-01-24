@@ -55,5 +55,11 @@ public class ViewController {
     public String getProductById(@RequestParam("id")int productId) {
         return "product_detail";
     }
+
+    //수정하기 RequestParam은 url 작성 X
+    @GetMapping("/update/product")
+    public String updateProduct(@RequestParam("id")int id) {
+        return "updateProduct";
+    }
 }
 

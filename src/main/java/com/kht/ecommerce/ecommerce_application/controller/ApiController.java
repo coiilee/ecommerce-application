@@ -56,7 +56,7 @@ public class ApiController {
     @GetMapping("/api/product/{productId}")
     public Product apiProductById(@PathVariable("productId") int productId) {
         return productService.productDetail(productId);
-
+        //db에서 가져온 데이터를 front-end로 전달
     }
     /*
     HTTP Status 500 – Internal Server Error 서버에서 생각지 못한 문제 발생
