@@ -77,21 +77,22 @@
         $.ajax({
             url: `/api/user/edit/${id}`,
             method : "PUT",
-            contentType : 'application/json',
+            contentType : 'application/json', //json 형식 = 글자형식 전송
             data : JSON.stringify({
-                email : $('#email').val(),
-                phone : $('#phone').val(),
-                city : $('#city').val(),
-                street : $('#street').val(),
-                streetNumber : $('#streetNumber').val(),
-                zipcode : $('#zipcode').val()
+                email : $('#email').val(),               //input 에 있는 값을 가져와서 email 이라는 이름으로 작성한 값을 전달
+                phone : $('#phone').val(),               //input 에 있는 값을 phone 이라는 이름으로 사용자가 작성한 값을 전달
+                city : $('#city').val(),                 //input 에 있는 값을 city 이라는 이름으로 사용자가 작성한 값을 전달
+                street : $('#street').val(),             //input 에 있는 값을 street 이라는 이름으로 사용자가 작성한 값을 전달
+                streetNumber : $('#streetNumber').val(), //input 에 있는 값을 streetNumber 이라는 이름으로 사용자가 작성한 값을 전달
+                zipcode : $('#zipcode').val()            //input 에 있는 값을 zipcode 이라는 이름으로 사용자가 작성한 값을 전달
             }),
 
-            success: function (data){
-                alert("사용자 정보 수정 성공!");
+            success: function (data){ //contentType 으로 data 전송 성공했음을 나타냄
+                      alert("사용자 정보 수정 성공!");
+                      window.location.href= `/user?id=${id}`;
             },
-            error : function (err){
-                alert("데이터를 수정할 수 없습니다. 다시 시도해주세요.");
+            error : function (err){ //컨트롤러에서 데이터를 서비스로 전달하는데 문제가 생겼을 때 발생하는 alert
+                      alert("데이터를 수정할 수 없습니다. 다시 시도해주세요.");
             }
 
         })

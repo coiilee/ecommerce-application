@@ -41,6 +41,7 @@ UserMapper userMapper;
         return userMapper.userDetail(userId);
     }
 
+    //사용자 정보 업데이트
     @Override
     public void updateUser(User user) {
         userMapper.updateUser(user);

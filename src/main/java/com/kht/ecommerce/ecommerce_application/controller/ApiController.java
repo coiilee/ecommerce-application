@@ -35,8 +35,10 @@ public class ApiController {
 
     //사용자 수정하기 API
     // /api/user/edit/{id}
-    @PutMapping("/api/user/edit/{id}")
+    @PutMapping("/api/user/edit/{id}") //PathVariable = 특정 사용자 데이터를 주고받는 장소
+                                          // @Request = 데이터를 통째로 전달받거나, 일부분만 전달받아서 사용하거나 전달
     public void updateUser(@PathVariable int id, @RequestBody User user){
+        System.out.println(user.toString());
         user.setId(id);
         userService.updateUser(user);
 
