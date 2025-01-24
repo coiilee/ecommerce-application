@@ -19,5 +19,10 @@ public interface UserMapper {
     //유저 상세보기
     User userDetail(int userId);
 
+    //유저 정보 수정(업데이트)
+    void updateUser(User user);
+
+
+
 
 }

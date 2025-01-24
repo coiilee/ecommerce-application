@@ -13,5 +13,11 @@ public interface UserService {
     //이메일 존재 유무 확인
     boolean existByEmail(String email);
 
+    //사용자 상세정보
     User userDetail(int userId);
+
+    //사용자 정보 업데이트
+    void updateUser(User user);
+
+
 }

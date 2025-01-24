@@ -27,9 +27,26 @@ public class ApiController {
         return userService.getAllUsers();
     }
 
+    //유저 정보 상세보기
+    @GetMapping("/api/user/{userId}")
+    public User apiUserById(@PathVariable("userId") int userId){
+        return userService.userDetail(userId);
+    }
+
+    //사용자 수정하기 API
+    // /api/user/edit/{id}
+    @PutMapping("/api/user/edit/{id}")
+    public void updateUser(@PathVariable int id, @RequestBody User user){
+        user.setId(id);
+        userService.updateUser(user);
+
+    }
+
+
     // 상품 목록 API
     @GetMapping("/api/products")
     public List<Product> getProducts() {
+
         return productService.getAllProducts();
 
     }
@@ -46,11 +63,6 @@ public class ApiController {
         return userService.existByEmail(email);
     }
 
-    //유저 정보 상세보기
-    @GetMapping("/api/user/{userId}")
-    public User apiUserById(@PathVariable("userId") int userId){
-        return userService.userDetail(userId);
-    }
 
     //상품 정보 상세보기
     @GetMapping("/api/product/{productId}")

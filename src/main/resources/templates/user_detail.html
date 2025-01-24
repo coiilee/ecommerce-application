@@ -21,10 +21,15 @@
                 method: "GET",
                 success: function (data){
                 if(data) {
-                    $('#user-detail-container').append(`<p>이름: ${data.firstname} ${data.lastname}</p>`);
-                    $('#user-detail-container').append(`<p>전화번호: ${data.phone}</p>`);
-                    $('#user-detail-container').append(`<p>이메일: ${data.email}</p>`);
-                    $('#user-detail-container').append(`<p>주소: ${data.address}</p>`);
+                    $('#user-detail-container').append(`<p>이름: ${data.firstname} ${data.lastname}</p>
+                    <p>전화번호: ${data.phone}</p>
+                    <p>이메일: ${data.email}</p>
+                    <p>도시: ${data.city}</p>
+                    <p>도로명 주소: ${data.street}</p>
+                    <p>도로 번호: ${data.streetNumber}</p>
+                    <p>우편 번호: ${data.zipcode}</p>
+                            <!-- /user/edit?id="$ { data.id } => ViewController 에서 user-edit.html 템플릿과 연결하는 url -->
+                    <a href="/user/edit?id=${data.id}">정보 수정하기 </a>`);
                 }
             },
             error: function (error) {

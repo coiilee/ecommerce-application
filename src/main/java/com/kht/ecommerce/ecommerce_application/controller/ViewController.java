@@ -50,13 +50,20 @@ public class ViewController {
         return "user_detail";
     }
 
+    //유저 정보 수정 페이지 조회
+    @GetMapping("/user/edit")
+    public String updateUser(@RequestParam("id") int id){
+        return "user_edit";
+    }
+
     //상품 상세보기 페이지
     @GetMapping("/product")
     public String getProductById(@RequestParam("id")int productId) {
         return "product_detail";
     }
 
-    //수정하기 RequestParam은 url 작성 X
+
+    //상품 정보 수정하기 RequestParam은 url 작성 X
     @GetMapping("/update/product")
     public String updateProduct(@RequestParam("id")int id) {
         return "updateProduct";

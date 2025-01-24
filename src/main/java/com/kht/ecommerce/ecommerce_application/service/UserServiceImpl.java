@@ -41,5 +41,10 @@ UserMapper userMapper;
         return userMapper.userDetail(userId);
     }
 
+    @Override
+    public void updateUser(User user) {
+        userMapper.updateUser(user);
+    }
+
 
 }

@@ -14,12 +14,25 @@
     </select>
 
     <select id="getAllUsers">
-    SELECT id, firstname, lastname, phone FROM users;
+    SELECT *
+    FROM users;
     </select>
 
     <select id="userDetail">
-        SELECT id, firstname, lastname, email, phone
+        SELECT id, firstname, lastname, email, phone, city, street, street_number, zipcode
         FROM users
         WHERE id = #{userId}
     </select>
+
+    <update id="updateUser">
+        UPDATE Users
+        SET
+            email = #{email},
+            phone = #{phone},
+            city = #{city},
+            street = #{street},
+            street_number = #{streetNumber},
+            zipcode = #{zipcode}
+        WHERE id = #{id}
+    </update>
 </mapper>
