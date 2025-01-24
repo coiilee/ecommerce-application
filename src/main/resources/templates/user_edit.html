@@ -89,7 +89,7 @@
 
             success: function (data){ //contentType 으로 data 전송 성공했음을 나타냄
                       alert("사용자 정보 수정 성공!");
-                      window.location.href= `/user?id=${id}`;
+                      window.location.href= `/user?id=${id}`; //유저 상세보기 주소로 이동
             },
             error : function (err){ //컨트롤러에서 데이터를 서비스로 전달하는데 문제가 생겼을 때 발생하는 alert
                       alert("데이터를 수정할 수 없습니다. 다시 시도해주세요.");
